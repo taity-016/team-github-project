@@ -69,30 +69,30 @@
             border-radius: 50%;
             border: 2px solid #333;
             padding: 2px;
-            line-height: 1; /* ปรับให้ไอคอนอยู่ตรงกลาง */
+            line-height: 1; 
         }
 
 
-        /* ส่วนเนื้อหาหลัก */
+        
         .product-page-content {
             padding: 0 40px;
         }
 
-        /* ส่วนแบนเนอร์สินค้าเด่น (Hero Section) */
+       
         .hero-section {
             display: flex;
-            background-color: #FEEF9E; /* สีเหลืองอ่อนตามภาพ */
+            background-color: #FEEF9E; 
             padding: 30px 0;
         }
 
         .hero-left {
-            flex: 2; /* ใช้พื้นที่มากกว่า */
+            flex: 2; 
             padding-right: 20px;
             width: 100px;
             height: 350px;
         }
 
-        /* ใช้ object-fit: cover เพื่อให้รูปเต็มพื้นที่ในกรณีใช้รูปจริง */
+       
         .hero-image {
             width: 100%;
             height: 100%; 
@@ -102,15 +102,15 @@
         }
 
         .hero-right {
-            flex: 1; /* ใช้พื้นที่น้อยกว่า */
+            flex: 1; 
             display: grid;
-            grid-template-columns: 1fr 1fr; /* จัดเป็น 2 คอลัมน์ */
+            grid-template-columns: 1fr 1fr; 
             gap: 15px;
         }
         
-        /* ปรับให้รูปที่สามเป็นแถวเดียวเพื่อเลียนแบบเลย์เอาต์ */
+        
         .hero-right .hero-product-card:last-child {
-            grid-column: span 2; /* ทำให้ช่องที่สามครอบคลุมสองคอลัมน์ */
+            grid-column: span 2; 
         }
 
         .hero-product-card {
@@ -118,19 +118,19 @@
             border-radius: 5px;
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            /* กำหนดความสูงของ card เพื่อให้รูปขนาดเล็กดูใกล้เคียงกัน */
-            height: 150px; /* ปรับตามความเหมาะสม */
+         
+            height: 150px; /
         }
         
         .hero-right .hero-product-card:first-child,
         .hero-right .hero-product-card:nth-child(2) {
-             height: 200px; /* เพิ่มความสูงสำหรับสองรูปบน */
+             height: 200px; /
         }
 
         .small-product-image {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* ครอบคลุมพื้นที่โดยไม่ยืด */
+            object-fit: cover; /
             display: block;
         }
 
@@ -152,14 +152,14 @@
             border-radius: 0 10px 10px 0;
             position: relative;
             display: inline-block;
-            /* **การจำลองรูปเปลวไฟอาจต้องใช้รูปภาพจริงหรือไอคอนเพื่อความสมจริง** */
+        
         }
 
 
-        /* แกลเลอรีสินค้าด้านล่าง */
+      
         .product-gallery {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 คอลัมน์เท่ากัน */
+            grid-template-columns: repeat(4, 1fr); 
             gap: 20px;
             padding: 20px 0 40px;
             background-color: #ffffff;
@@ -171,7 +171,7 @@
 
         .product-image {
             width: 100%;
-            height: 200px; /* กำหนดความสูงคงที่เพื่อให้สินค้าดูเป็นระเบียบ */
+            height: 200px; 
             object-fit: cover;
             display: block;
             margin-bottom: 10px;
@@ -253,3 +253,4 @@
 </body>
 
 </html>
+
