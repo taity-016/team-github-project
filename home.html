@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home Style — Landing</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f6ede4;
+  --panel:#f7eedd;
+  --accent:#a77f46;
+  --muted:#6d5a4a;
+  --rounded:28px;
+  --soft-shadow: 0 8px 24px rgba(25,20,15,0.08);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Kanit", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #fbf5ef 0%, var(--bg) 100%);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+/* header */
+.site-header{
+  padding:18px 0;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.brand{
+  font-weight:700;
+  letter-spacing:4px;
+  color: #2b251f;
+  font-size:20px;
+  flex:0 0 auto;
+}
+.main-nav{
+  display:flex;
+  gap:18px;
+  margin-left:12px;
+  flex:1 1 auto;
+  align-items:center;
+}
+.nav-btn{
+  padding:8px 12px;
+  background:transparent;
+  border-radius:18px;
+  cursor:pointer;
+  color: #5a4a3f;
+  font-weight:600;
+}
+.nav-btn.active{
+  background:linear-gradient(90deg,#d8c4ad,#b99b6f);
+  color: #fff;
+  box-shadow:var(--soft-shadow);
+}
+.header-right{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.search{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(255,255,255,0.6);
+  padding:6px;
+  border-radius:22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.search input{
+  border:0;
+  outline:none;
+  background:transparent;
+  width:120px;
+  font-size:13px;
+}
+.search button{
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  font-size:14px;
+}
+.icon{
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* HERO */
+.hero{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:28px;
+  align-items:stretch;
+}
+.hero-left{
+  background:linear-gradient(90deg,#fff 0%, rgba(255,255,255,0.8) 100%);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow: var(--soft-shadow);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+}
+.hero-left img{
+  width:100%;
+  max-width:580px;
+  object-fit:contain;
+  display:block;
+}
+
+.hero-right{
+  background: linear-gradient(90deg, rgba(255,255,255,0.85), rgba(250,241,233,0.9));
+  border-radius:28px;
+  padding:44px 36px;
+  box-shadow:var(--soft-shadow);
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:18px;
+}
+
+.badge{
+  display:inline-block;
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:20px;
+  border:1px solid rgba(120,100,80,0.12);
+  background:rgba(255,255,255,0.6);
+  color:var(--muted);
+  width:max-content;
+}
+.hero-title{
+  margin:0;
+  font-family: "Merriweather", "Kanit", serif;
+  font-weight:700;
+  color:#4a3d34;
+  font-size:48px;
+  line-height:1.02;
+  letter-spacing:-0.6px;
+}
+.subtitle{
+  margin:0;
+  color:#6b5b50;
+  opacity:0.9;
+}
+
+.chips{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-top:8px;
+  flex-wrap:wrap;
+}
+.chip{
+  padding:8px 14px;
+  border-radius:999px;
+  border:1px solid rgba(120,100,80,0.12);
+  background:rgba(255,255,255,0.7);
+  font-size:13px;
+  font-weight:600;
+  color:#5b4737;
+}
+.btn-learn{
+  margin-left:6px;
+  padding:10px 18px;
+  border-radius:999px;
+  background: #3b2b21;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  display:inline-block;
+  box-shadow: 0 8px 18px rgba(59,43,33,0.18);
+}
+
+/* CARDS */
+.cards{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:22px;
+  align-items:stretch;
+}
+.card{
+  background: linear-gradient(90deg, #efe6dc, #f6efea);
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow: var(--soft-shadow);
+  display:flex;
+  flex-direction:column;
+  min-height:160px;
+}
+.card-img{
+  position:relative;
+  height:140px;
+  overflow:hidden;
+}
+.card-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.num{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background: linear-gradient(90deg,#7f684d,#c8a96b);
+  color:white;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  box-shadow:0 6px 14px rgba(0,0,0,0.12);
+}
+
+.card-body{
+  padding:16px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.card-body h3{
+  margin:0;
+  font-size:20px;
+  color:#3f342b;
+  font-weight:700;
+}
+.card-body .thai{
+  margin:0;
+  color:#7a6a5d;
+  font-size:13px;
+}
+
+/* responsive */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr; gap:16px}
+  .hero-left{order:2}
+  .hero-right{order:1}
+  .hero-title{font-size:36px}
+  .cards{grid-template-columns: 1fr; gap:16px}
+}
+
+</style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">HOME STYLE</div>
+
+      <nav class="main-nav">
+        <a class="nav-btn active">หน้าหลัก</a>
+        <a class="nav-btn">สินค้า</a>
+        <a class="nav-btn"><a href="product.html">โปรโมชั่น</a>
+        <a class="nav-btn"><a href="cash.html">เกี่ยวกับ</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="search">
+          <input type="search" placeholder="SEARCH" />
+          <button aria-label="search">🔍</button>
+        </div>
+        <div class="icons">
+          <button class="icon">🛒</button>
+          <a href="login.html">
+  <button class="icon">👤</button>
+</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-left">
+        <img src="1.png" alt="hero image" />
+      </div>
+
+      <div class="hero-right">
+        <div class="badge">MADE IN THAILAND</div>
+        <h1 class="hero-title">ดีไซน์สุดเฟี้ยวและ<br>วัสดุระดับพรีเมียม</h1>
+        <p class="subtitle">High quality furniture and electrical appliance with premium material.</p>
+
+        <div class="chips">
+          <span class="chip">HIGH QUALITY</span>
+          <span class="chip">PREMIUM DESIGN</span>
+          <span class="chip">VERSATILE</span>
+          <a class="btn-learn" href="#">LEARN MORE ➜</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cards">
+      <article class="card">
+        <div class="card-img">
+          <img src="2.jpg" alt="electrical appliance" />
+          <div class="num">01</div>
+        </div>
+        <div class="card-body">
+          <h3>electrical appliance</h3>
+          <p class="thai">เครื่องใช้ไฟฟ้า</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img">
+          <img src="3.jpg" alt="sofa" />
+          <div class="num">02</div>
+        </div>
+        <div class="card-body">
+          <h3>Minimal Sofa</h3>
+          <p class="thai">โซฟาแบบมินิมอล</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-img">
+          <img src="4.jpg" alt="decorations" />
+          <div class="num">03</div>
+        </div>
+        <div class="card-body">
+          <h3>Decorations</h3>
+          <p class="thai">ของตกแต่ง</p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

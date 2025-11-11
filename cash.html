@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOME STYLE Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Prompt', sans-serif;
+      background: #fffaf0;
+      color: #333;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .sidebar {
+      width: 230px;
+      background: #ff9a33;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #fff;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+
+    .menu a.active, .menu a:hover {
+      background: #e96b13;
+      border-radius: 0 20px 20px 0;
+    }
+
+    .menu a i {
+      font-size: 18px;
+    }
+
+    /* ---------- Main Area ---------- */
+    .main {
+      flex: 1;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top bar */
+    .topbar {
+      background: #fff3e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 25px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .welcome {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .username {
+      color: #f28000;
+      font-weight: 700;
+    }
+
+    .userbox {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffa726;
+      padding: 6px 14px;
+      border-radius: 20px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .userbox img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* ---------- Content Area ---------- */
+    .content {
+      display: flex;
+      gap: 20px;
+      padding: 20px 30px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .left-section {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .right-section {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Upgrade Box */
+    .upgrade-box {
+      background: linear-gradient(90deg, #ffa32b, #ffba68);
+      border-radius: 15px;
+      padding: 25px 25px 15px 25px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .upgrade-box .text {
+      max-width: 60%;
+    }
+
+    .upgrade-box h2 {
+      font-size: 22px;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .upgrade-box p {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .upgrade-box button {
+      margin-top: 15px;
+      background: #e65800;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .upgrade-box img {
+      width: 120px;
+    }
+
+    /* Order Box */
+    .order-box {
+      background: #ffb955;
+      border-radius: 15px;
+      padding: 15px 20px;
+      color: #fff;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    }
+
+    .order-box h3 {
+      margin-top: 0;
+      font-size: 16px;
+    }
+
+    table {
+      width: 100%;
+      font-size: 13px;
+      color: #fff;
+      border-collapse: collapse;
+    }
+
+    table td {
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+
+    table td:last-child {
+      text-align: right;
+    }
+
+    /* Product Section */
+    .product-section {
+      background: #ffae42;
+      border-radius: 15px;
+      padding: 15px 18px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+
+    .tabs button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tabs button.active {
+      border-color: #fff;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      font-size: 13px;
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 8px;
+      height: 110px;
+      object-fit: cover;
+    }
+
+    .product-card .price {
+      color: #e87a00;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo"><a href="home.html">🏠 HOME STYLE</a><br><small>E-Commerce</small></div>
+    <div class="menu">
+      <a href="#" class="active">👤 โปรไฟล์</a>
+      <a href="#">🛋️ สินค้า</a>
+      <a href="product.html">โปรโมชั่น</a>
+      <a href="#">🛒 ตะกร้าของฉัน</a>
+      <a href="#">💳 จ่ายเงิน</a>
+      
+      
+      <a href="#">🚪 ออกจากระบบ</a>
+     
+    </div>
+  </aside>
+
+  <!-- Main Area -->
+  <div class="main">
+
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="welcome">
+        ยินดีต้อนรับกลับ <span class="username">Ratchanon888</span><br>
+        <small>ข้อเสนอพิเศษรอคุณอยู่</small>
+      </div>
+
+      <div class="userbox">
+        <img src="https://i.pravatar.cc/40" alt="user" />
+        <div>
+          <div><strong>Ratchanon888</strong></div>
+          <div>฿ 2,000.05 | VIP Member</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      <div class="left-section">
+        <div class="upgrade-box">
+          <div class="text">
+            <h2>Upgrade Your Account to<br>VVIP Member</h2>
+            <p>ยกระดับสถานะสมาชิกของคุณและก้าวไปสู่ความหรูหราพิเศษ</p>
+            <button>Upgrade Now</button>
+          </div>
+          <img src="https://cdn-icons-png.flaticon.com/512/5775/5775410.png" alt="Upgrade" />
+        </div>
+
+        <div class="order-box">
+          <h3>คำสั่งซื้อล่าสุด</h3>
+          <table>
+            <tr><td>ไม้ฉลุ</td><td>฿100</td></tr>
+            <tr><td>อุปกรณ์ติดตั้งผนัง</td><td>฿3500</td></tr>
+            <tr><td>ระบบปั้มน้ำ</td><td>฿200</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="right-section">
+        <div class="product-section">
+          <div class="tabs">
+            <button class="active">แนะนำ</button>
+            <button>สำหรับคุณ</button>
+            <button>กำลังมาแรง</button>
+          </div>
+          <div class="products">
+            <div class="product-card">
+              <img src="pen.jpg" alt="floor">
+              <div>ไม้อัด ไม้โครง<br><span class="price">฿300</span></div>
+            </div>
+            <div class="product-card">
+              <img src="lamp.jpg" alt="lamp">
+              <div>หลอดไฟตกแต่ง<br><span class="price">฿500</span></div>
+            </div>
+            <div class="product-card">
+              <img src="fer.jpg" alt="outdoor set">
+              <div>ชุดโต๊ะเก้าอี้นอกบ้าน<br><span class="price">฿800</span></div>
+            </div>
+            <div class="product-card">
+              <img src="toooo.jpg" alt="toilet">
+              <div>สุขภัณฑ์ห้องน้ำ<br><span class="price">฿990</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

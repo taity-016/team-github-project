@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Style | Log in</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --yellow:#fde97d;
+    --dark:#222;
+    --gray:#dfdfdf;
+    --radius:40px;
+}
+
+/* Reset + Global */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+    font-family:"Kanit", sans-serif;
+    background:url("images/bg.jpg") no-repeat center/cover fixed;
+    display:flex;
+    justify-content:center;
+    padding:40px 0;
+    color:#222;
+}
+
+/* Main wrapper */
+.wrapper{
+    width:1100px;
+    height:600px;
+    background:white;
+    border-radius:var(--radius);
+    display:flex;
+    overflow:hidden;
+    border:7px solid var(--yellow);
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+
+/* Left section */
+.left{
+    width:55%;
+    background:var(--yellow);
+    position:relative;
+    padding:40px;
+}
+.left img.bgobject{
+    position:absolute;
+    right:-40px;
+    top:120px;
+    width:380px;
+}
+.left img.sofa{
+    position:absolute;
+    bottom:0;
+    left:40px;
+    width:380px;
+}
+.left h1{
+    position:absolute;
+    bottom:140px;
+    left:60px;
+    font-size:48px;
+    font-weight:700;
+    color:white;
+    text-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* Header nav */
+.nav{
+    font-size:18px;
+    display:flex;
+    gap:32px;
+    margin-bottom:35px;
+}
+.nav span:first-child{
+    font-weight:700;
+    letter-spacing:2px;
+}
+.nav a{
+    text-decoration:none;
+    color:#3b2d1c;
+    font-weight:500;
+}
+.nav a.active{
+    background:#3b2d1c;
+    padding:6px 16px;
+    border-radius:16px;
+    color:white;
+}
+
+/* Right login panel */
+.right{
+    width:45%;
+    background:white;
+    border-radius:var(--radius) 0 0 var(--radius);
+    padding:70px 70px;
+}
+.right h2{
+    font-size:38px;
+    margin-bottom:40px;
+    font-weight:700;
+}
+
+/* Input fields */
+.input-group{
+    margin-bottom:18px;
+    position:relative;
+}
+.input-group input{
+    width:100%;
+    padding:14px 45px;
+    border-radius:26px;
+    border:1px solid #dcdcdc;
+    font-size:15px;
+    outline:none;
+    background:#f4f4f4;
+}
+.input-group i{
+    position:absolute;
+    left:16px;
+    top:14px;
+    opacity:0.6;
+    font-size:16px;
+}
+.options{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    margin-bottom:30px;
+    opacity:0.7;
+}
+
+/* Buttons */
+.btn{
+    width:100%;
+    padding:14px;
+    border-radius:26px;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:600;
+}
+.login-btn{
+    background:#0f0f0f;
+    color:white;
+}
+.signup-btn{
+    background:#e6e6e6;
+    margin-top:14px;
+}
+.or-line{
+    margin:16px 0;
+    text-align:center;
+    font-size:13px;
+    opacity:0.7;
+}
+.or-line:before, .or-line:after{
+    content:"";
+    display:inline-block;
+    width:32%;
+    height:1px;
+    background:#aaa;
+    margin:0 6px 4px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- Left panel -->
+    <div class="left">
+        <div class="nav">
+            <span>HOME STYLE</span>
+            <a href="home.html" class="active">หน้าหลัก</a>
+            <a href="#">สินค้า</a>
+            <a href="product.html">โปรโมชั่น</a>
+            <a href="cash.html">เกี่ยวกับ</a>
+        </div>
+
+       
+        
+        <h1>Welcome Back!</h1>
+    </div>
+
+    <!-- Right login panel -->
+    <div class="right">
+        <h2>Log in</h2>
+
+        <div class="input-group">
+            <i>👤</i>
+            <input type="text" placeholder="Username">
+        </div>
+
+        <div class="input-group">
+            <i>🔒</i>
+            <input type="password" placeholder="Password">
+        </div>
+
+        <div class="options">
+            <label><input type="checkbox"> Remember Me</label>
+            <a href="#" style="text-decoration:none;color:#444;">Forgot Password?</a>
+        </div>
+
+        <button class="btn login-btn">Log in</button>
+
+        <div class="or-line">Or</div>
+
+        <button class="btn signup-btn">Sign up</button>
+    </div>
+
+</div>
+
+</body>
+</html>

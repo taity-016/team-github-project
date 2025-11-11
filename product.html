@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOME STYLE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Prompt', sans-serif;
+      background-color: #ffe882;
+      color: #333;
+    }
+
+    /* แถบเมนูบน */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      border-bottom: 1px solid #ccc;
+      background-color: #fff4a8;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav a.active {
+      background-color: #5b4227;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .hero {
+      text-align: center;
+      font-size: 50px;
+      font-weight: 600;
+      color: rgba(100,100,100,0.4);
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+
+    /* ส่วนของการ์ด */
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      position: relative;
+      width: 220px;
+      border-radius: 20px;
+      text-align: center;
+      padding: 15px;
+      box-sizing: border-box;
+      color: #fff;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      margin-top: 10px;
+      font-size: 18px;
+      color: white;
+    }
+
+    .card p {
+      font-size: 16px;
+      margin: 8px 0;
+      color: white;
+    }
+
+    .add-btn {
+      display: block;
+      background: white;
+      color: black;
+      border-radius: 10px;
+      padding: 10px;
+      font-weight: 500;
+      margin-top: 5px;
+    }
+
+    /* สีการ์ด */
+    .orange { background: #ff8b00; }
+    .purple { background: #b28bff; }
+    .green { background: #5ecb8a; }
+    .blue { background: #2aaefc; }
+
+    /* ป้ายลดราคา */
+    .sale-tag {
+      position: absolute;
+      top: -15px;
+      right: -20px;
+      background: red;
+      color: white;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transform: rotate(15deg);
+      font-size: 14px;
+    }
+
+    .sale-tag small {
+      font-size: 10px;
+    }
+
+    /* ไอคอนหัวใจและแชร์ */
+    .card::before {
+      content: "♡";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 20px;
+      color: white;
+    }
+
+    .card::after {
+      content: "⇪";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">HOME STYLE</div>
+    <nav>
+      <a href="home.html">หน้าหลัก</a>
+      <a href="#">สินค้า</a>
+      <a href="#" class="active">โปรโมชั่น</a>
+      <a href="cash.html">เกี่ยวกับ</a>
+    </nav>
+    <div class="icons">
+      🛒
+      <img src="https://via.placeholder.com/30" alt="user" style="border-radius:50%;">
+    </div>
+  </header>
+
+  <div class="hero">HOME STYLE</div>
+
+  <div class="card-container">
+    <div class="card orange">
+      <img src="https://via.placeholder.com/200x150?text=โต๊ะ" alt="โต๊ะ">
+      <h3>โต๊ะ</h3>
+      <a class="add-btn">+ เพิ่มลงรถเข็น</a>
+    </div>
+
+    <div class="card orange">
+      <img src="https://via.placeholder.com/200x150?text=เก้าอี้นุ่ม" alt="เก้าอี้">
+      <h3>เก้าอี้นุ่ม</h3>
+      <a class="add-btn">+ เพิ่มลงรถเข็น</a>
+    </div>
+
+    <div class="card purple">
+      <div class="sale-tag">-50%<br><small>OFF</small></div>
+      <img src="https://via.placeholder.com/200x150?text=โซฟา" alt="โซฟา">
+      <h3>โซฟา</h3>
+      <p>3500</p>
+      <a class="add-btn">+ เพิ่มลงรถเข็น</a>
+    </div>
+
+    <div class="card green">
+      <img src="https://via.placeholder.com/200x150?text=เตียง" alt="เตียง">
+      <h3>เตียง</h3>
+      <p>5000</p>
+      <a class="add-btn">+ เพิ่มลงรถเข็น</a>
+    </div>
+
+    <div class="card blue">
+      <img src="https://via.placeholder.com/200x150?text=ต้นไม้" alt="ต้นไม้">
+      <h3>ต้นไม้</h3>
+      <p>1200</p>
+      <a class="add-btn">+ เพิ่มลงรถเข็น</a>
+    </div>
+  </div>
+
+</body>
+</html>
