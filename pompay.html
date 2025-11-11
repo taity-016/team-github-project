@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ชำระเงินเสร็จสิ้น - E-commerce Example</title>
+    
+    <style>
+        /* CSS Styles */
+
+        /* การตั้งค่าเริ่มต้น */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif; /* แนะนำให้ใช้ฟอนต์ไทยจริง */
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f7f7f7; /* สีพื้นหลังอ่อน ๆ */
+        }
+
+        /* เมนูแนวนอนด้านซ้าย (Sidebar) */
+        .sidebar {
+            width: 250px;
+            background-color: #ff9933; /* สีส้มเข้มตามภาพ */
+            color: #333;
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            padding: 0 20px;
+            width: 100%;
+        }
+        
+        .logo-text {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-menu {
+            width: 100%;
+        }
+
+        .nav-menu a {
+            display: flex;
+            align-items: center;
+            padding: 15px 30px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.2s;
+            font-size: 1.1em;
+            gap: 15px;
+        }
+        
+        /* สถานะ Active ของ "จ่ายเงิน" */
+        .nav-menu .active-nav {
+            background-color: #d25232; /* สีแดงส้มเข้มสำหรับการ Active */
+            color: white;
+            position: relative;
+        }
+        /* แถบด้านขวาของเมนู Active */
+        .nav-menu .active-nav::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 8px; /* ความหนาของแถบ */
+            background-color: #a33c27; /* สีแดงเข้ม */
+        }
+        
+        .nav-menu .icon {
+            font-size: 1.2em;
+        }
+
+
+        /* ส่วนเนื้อหาหลัก */
+        .main-content {
+            flex-grow: 1;
+            background-color: #f9f6f0; /* สีครีมอ่อนตามภาพ */
+        }
+
+        /* ส่วนหัวด้านบน (Header Top) */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .welcome-text {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .user-profile-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #fff;
+            padding: 5px 15px 5px 5px;
+            border-radius: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-details {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .balance {
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        .vip-member {
+            background-color: gold;
+            color: #333;
+            padding: 1px 5px;
+            border-radius: 3px;
+            font-size: 0.7em;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        .action-icon {
+            font-size: 1.5em;
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ส่วนแสดงผลสำเร็จ (Success Content) */
+        .success-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 70px); /* ลบความสูงของ Header Top */
+            text-align: center;
+            padding-bottom: 50px; /* ขยับขึ้นเล็กน้อย */
+        }
+
+        .success-text-thai {
+            font-size: 6em;
+            font-weight: 900;
+            color: #FF5A79; /* สีชมพู */
+            text-shadow: 
+                -4px -4px 0 #FFF, 
+                4px -4px 0 #FFF, 
+                -4px 4px 0 #FFF, 
+                4px 4px 0 #FFF,
+                0 0 0px #FF5A79,
+                0 0 1px #FF5A79; /* สร้างขอบสีขาวหนา */
+            letter-spacing: 5px;
+            line-height: 1.2;
+        }
+
+        .checkmark-icon {
+            font-size: 5em;
+            color: #5cb85c; /* สีเขียว */
+            border: 8px solid #5cb85c;
+            border-radius: 50%;
+            padding: 10px;
+            margin: 30px 0;
+            line-height: 1;
+        }
+
+        .thankyou-eng {
+            font-size: 2em;
+            color: #D25232; /* สีแดงส้ม */
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .thankyou-main {
+            font-size: 8em;
+            font-weight: 900;
+            color: #FF5A79; /* สีชมพู */
+            text-shadow: 
+                -4px -4px 0 #FFF, 
+                4px -4px 0 #FFF, 
+                -4px 4px 0 #FFF, 
+                4px 4px 0 #FFF; /* สร้างขอบสีขาว */
+            letter-spacing: 10px;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo-section">
+            <div class="logo-text">
+                <span class="icon">🏠</span> HOME STYLE
+            </div>
+            E-Commerce
+        </div>
+
+        <nav class="nav-menu">
+            <a href="#"><span class="icon">👤</span> โปรไฟล์</a>
+            <a href="#"><span class="icon">📦</span> สินค้า</a>
+            <a href="#"><span class="icon">🎁</span> โปรโมชั่น</a>
+            <a href="#"><span class="icon">🛒</span> ตะกร้าของฉัน</a>
+            <a href="#" class="active-nav"><span class="icon">💳</span> จ่ายเงิน</a>
+            <a href="#"><span class="icon">🚪</span> ออกจากระบบ</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="header-top">
+            <div class="welcome-text">
+                <br>
+                ข้อเสนอพิเศษรอคุณอยู่
+            </div>
+            
+            <div class="user-profile-actions">
+                <div class="user-info">
+                    <img src="img/po.jpg" alt="Avatar" class="user-avatar">
+                    <div class="user-details">
+                        Ratchanon888 <span class="vip-member">VIP Member</span>
+                        <span class="balance">฿ 2,000.00 |</span>
+                    </div>
+                </div>
+                <span class="action-icon">🔔</span>
+                <span class="action-icon">🔍</span>
+                <span class="action-icon">☰</span>
+            </div>
+        </div>
+
+        <div class="success-content">
+            <div class="success-text-thai">
+                ชำระเงิน <br>
+                เสร็จสิ้น!
+            </div>
+            
+            <div class="checkmark-icon">
+                ✔
+            </div>
+            
+            <div class="thankyou-eng">
+                THANK
+            </div>
+            <div class="thankyou-main">
+                YOU
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
